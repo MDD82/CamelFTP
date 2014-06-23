@@ -36,7 +36,7 @@ public class FileCopierFTP
 						System.out.println(exchange.getIn().getBody());
 					}
 				})				
-				.to("file:C:/DataOUT")//.setHeader(Exchange.FILE_NAME,simple("${file:name.	noext}.old"))
+				.to("file:C:/DataXML")
 				.when(header("CamelFileName").endsWith(".txt"))
 				.process(new Processor() {
 					public void process(Exchange exchange) throws Exception {
@@ -46,7 +46,17 @@ public class FileCopierFTP
 						System.out.println(exchange.getIn().getBody());
 					}
 				})
-				.to("file:C:/DataIN");//.to("ftp://192.168.230.1:21?username=mauro");*/
+				.to("file:C:/DataTxt")//.to("ftp://192.168.230.1:21?username=mauro");*/
+				.when(header("CamelFileName").endsWith(".csv"))
+				.process(new Processor() {
+					public void process(Exchange exchange) throws Exception {
+						
+						System.out.println("Copying file csv: "
+								+ exchange.getIn().getHeader("CamelFileName"));
+						System.out.println(exchange.getIn().getBody());
+					}
+				})
+				.to("file:C:/DataCsv");
 			}
 		});
 
