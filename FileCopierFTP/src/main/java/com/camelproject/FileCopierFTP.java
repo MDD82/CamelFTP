@@ -56,7 +56,17 @@ public class FileCopierFTP
 						System.out.println(exchange.getIn().getBody());
 					}
 				})
-				.to("file:C:/DataCsv");
+				.to("file:C:/DataCsv")
+				.when(header("CamelFileName").endsWith(".java"))
+				.process(new Processor() {
+					public void process(Exchange exchange) throws Exception {
+						
+						System.out.println("Copying file java: "
+								+ exchange.getIn().getHeader("CamelFileName"));
+						System.out.println(exchange.getIn().getBody());
+					}
+				})
+				.to("file:C:/DataJava");
 			}
 		});
 
