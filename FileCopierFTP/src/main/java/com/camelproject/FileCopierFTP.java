@@ -3,6 +3,7 @@ package com.camelproject;
 
 import java.io.File;
 
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -24,7 +25,7 @@ public class FileCopierFTP
 		{
 			public void configure() {
 			
-				from("ftp://192.168.230.1:21?username=mauro")			//					from("file:C:/DataIN")
+				from("ftp://192.168.230.1:21?username=mauro")			
 				.choice()
 				.when(header("CamelFileName").endsWith(".xml"))
 				.process(new Processor() {
