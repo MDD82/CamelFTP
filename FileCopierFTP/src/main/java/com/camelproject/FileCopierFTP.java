@@ -47,7 +47,8 @@ public class FileCopierFTP
 					}
 				})
 				.to("file:C:/DataIN");//.to("ftp://192.168.230.1:21?username=mauro");*/
-				/*prova aggiunto commento*/
+				/*prova aggiunto commento
+				Aggiunto un ulteriore commento/*
 			}
 		});
 
