@@ -48,11 +48,11 @@ public class FileCopierFTP
 				})
 				.to("file:C:/DataTxt")//.to("ftp://192.168.230.1:21?username=mauro");*/
 				/*prova aggiunto commento*/
-				.when(header("CamelFileName").endsWith(".xsd"))
+				.when(header("CamelFileName").endsWith(".xxx"))
 				.process(new Processor() {
 					public void process(Exchange exchange) throws Exception {
 						
-						System.out.println("Copying file xsd: "
+						System.out.println("Copying file xxx: "
 								+ exchange.getIn().getHeader("CamelFileName"));
 						System.out.println(exchange.getIn().getBody());
 					}
