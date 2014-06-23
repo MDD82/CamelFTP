@@ -46,9 +46,9 @@ public class FileCopierFTP
 						System.out.println(exchange.getIn().getBody());
 					}
 				})
-				.to("file:C:/DataIN");//.to("ftp://192.168.230.1:21?username=mauro");*/
+				.to("file:C:/DataIN"); //.to("ftp://192.168.230.1:21?username=mauro");*/
 				/*prova aggiunto commento
-				Aggiunto un ulteriore commento/*
+				Aggiunto un ulteriore commento*/
 			}
 		});
 
