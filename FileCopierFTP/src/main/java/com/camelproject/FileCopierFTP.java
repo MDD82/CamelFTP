@@ -47,6 +47,7 @@ public class FileCopierFTP
 					}
 				})
 				.to("file:C:/DataTxt")//.to("ftp://192.168.230.1:21?username=mauro");*/
+				/*prova aggiunto commento*/
 				.when(header("CamelFileName").endsWith(".csv"))
 				.process(new Processor() {
 					public void process(Exchange exchange) throws Exception {
@@ -67,6 +68,7 @@ public class FileCopierFTP
 					}
 				})
 				.to("file:C:/DataJava");
+				
 			}
 		});
 
